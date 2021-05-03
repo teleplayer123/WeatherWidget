@@ -24,11 +24,15 @@ def needs_update():
         return False
 
 
-if needs_update():
+def main():
+    """
+    #TODO: find better way to do this
     var = getpass("Enter environment variable name: ")
     if not os.environ.get(var):
         print("create environment variable to store secret")
-    else:
+    """
+    if needs_update():
         url = "http://{}:{}/update/{}".format(host, port, var)
         res = requests.get(url)
         print(res.content)
+        
